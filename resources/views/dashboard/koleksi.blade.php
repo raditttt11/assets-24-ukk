@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="{{ asset('dist/assets/compiled/css/app-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('dist/assets/compiled/css/iconly.css') }}" />
 </head>
-
+<style class="">
+    .gambar {
+    width: 100px;
+    height: 100px;
+    }
+</style>
 <body>
     <script src="{{ asset('dist/assets/static/js/initTheme.js') }}"></script>
     <div id="app">
@@ -67,14 +72,14 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item">
                             <a href="{{ url('buku') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Buku</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item active">
                             <a href="{{ url('koleksi') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Koleksi</span>
@@ -89,31 +94,22 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="index.html" class="sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Peminjaman</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
                             <a href="{{ url('welcome') }}" class="sidebar-link">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>Logout</span>
                             </a>
                         </li>
-                        <li class="sidebar-title">Extra UI</li>
-
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class="sidebar-link">
-                                <i class="bi bi-pentagon-fill"></i>
-                                <span>Datatables</span>
-                            </a>
-                        </li>
 
                         <li class="sidebar-item">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="{{ url('minjam') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Peminjaman</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ url('profil') }}" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Profill</span>
                             </a>
                         </li>
                     </ul>
@@ -127,94 +123,81 @@
                 </a>
             </header>
 
-            <div class="page-heading">
-                <h3>Profile Statistics</h3>
+            <div class="page-heading my-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h3>BUKU KUU</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="page-content">
-                <section class="row">
-                    <div class="col-12 col-lg-9">
-                        <div class="row">
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 ms-2" style="height: 110px; width: 110px;">
-                                                <img src="{{ url ('gambar/bukuu.png') }}" class="img-fluid rounded">
-                                            </div>
-                                            <div class="fs-3 ms-3">
-                                                <p class="font-semibold text-fixed">
-                                                    Judul Buku
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
+                <section class="container-fluid">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-end mb-3">
+                                    <form class="d-flex" role="search">
+                                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-outline-success" type="submit">Search</button>
+                                    </form>
                                 </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 ms-2" style="height: 110px; width: 110px;">
-                                                <img src="{{ url ('gambar/bukuu.png') }}" class="img-fluid rounded">
+                                <table class="table table-bordered table-responsive">
+                                    <thead class="table-light">
+                                      <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Judul</th>
+                                        <th scope="col">Penulis</th>
+                                        <th scope="col">Kategori</th>
+                                        <th scope="col">Gambar</th>
+                                        <th scope="col">Opsi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>
+                                            <img class="gambar" src="{{ url('gambar/orang.png') }}" alt="">
+                                        </td>
+                                        <td>
+                                            <!-- Example single danger button -->
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Action
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Detail</a></li>
+                                                <li><a class="dropdown-item" href="#">Edit</a></li>
+                                                <li><a class="dropdown-item" href="#">Hapus</a></li>
+                                                </ul>
                                             </div>
-                                            <div class="fs-3 ms-3">
-                                                <p class="font-semibold text-fixed">
-                                                    Judul Buku
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 ms-2" style="height: 110px; width: 110px;">
-                                                <img src="{{ url ('gambar/bukuu.png') }}" class="img-fluid rounded">
-                                            </div>
-                                            <div class="fs-3 ms-3">
-                                                <p class="font-semibold text-fixed">
-                                                    Judul Buku
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 ms-2" style="height: 110px; width: 110px;">
-                                                <img src="{{ url ('gambar/bukuu.png') }}" class="img-fluid rounded">
-                                            </div>
-                                            <div class="fs-3 ms-3">
-                                                <p class="font-semibold text-fixed">
-                                                    Judul Buku
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Profile Visit</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="chart-profile-visit"></div>
-                                    </div>
-                                </div>
+                                        </td>
+                                    </tr>
+                                      <tr>
+                                        <td>2</td>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                        <td>@fat</td>
+                                        <td>@fat</td>
+                                      </tr>
+                                      <tr>
+                                        <td>3</td>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
-
+        </div>
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">

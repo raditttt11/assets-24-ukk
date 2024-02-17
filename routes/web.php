@@ -28,3 +28,23 @@ Route::get('/login', function () {
 route::get('/register', function () {
     return view('auth.register');
 });
+
+route::get('/koleksi', function() {
+    return view('dashboard.koleksi');
+});
+
+route::get('/kategori', function() {
+    return view('dashboard.kategori');
+});
+
+route::get('/buku', function() {
+    return view('dashboard.buku');
+});
+
+route::get('/minjam', function() {
+    return view('dashboard.minjam');
+});
+
+route::get('/profil', function() {
+    return view('dashboard.profil');
+});

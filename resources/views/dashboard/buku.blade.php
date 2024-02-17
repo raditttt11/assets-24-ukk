@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="{{ asset('dist/assets/compiled/css/app-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('dist/assets/compiled/css/iconly.css') }}" />
 </head>
-
+<style class="">
+    .gambar {
+    width: 100px;
+    height: 100px;
+    }
+</style>
 <body>
     <script src="{{ asset('dist/assets/static/js/initTheme.js') }}"></script>
     <div id="app">
@@ -67,7 +72,7 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item active">
                             <a href="{{ url('buku') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Buku</span>
@@ -89,7 +94,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="{{ url('minjam') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Peminjaman</span>
                             </a>
@@ -127,94 +132,122 @@
                 </a>
             </header>
 
-            <div class="page-heading">
-                <h3>Profile Statistics</h3>
+            <div class="page-heading my-3">
+                <h3>BUKU KUU</h3>
             </div>
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-9">
-                        <div class="row">
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 ms-2" style="height: 110px; width: 110px;">
-                                                <img src="{{ url ('gambar/bukuu.png') }}" class="img-fluid rounded">
-                                            </div>
-                                            <div class="fs-3 ms-3">
-                                                <p class="font-semibold text-fixed">
-                                                    Judul Buku
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="d-flex justify-content-end mb-3">
+                        <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Tambah Buku
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 ms-2" style="height: 110px; width: 110px;">
-                                                <img src="{{ url ('gambar/bukuu.png') }}" class="img-fluid rounded">
-                                            </div>
-                                            <div class="fs-3 ms-3">
-                                                <p class="font-semibold text-fixed">
-                                                    Judul Buku
-                                                </p>
-                                            </div>
+                                    <div class="modal-body">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                            <label for="floatingInput">Judul</label>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 ms-2" style="height: 110px; width: 110px;">
-                                                <img src="{{ url ('gambar/bukuu.png') }}" class="img-fluid rounded">
-                                            </div>
-                                            <div class="fs-3 ms-3">
-                                                <p class="font-semibold text-fixed">
-                                                    Judul Buku
-                                                </p>
-                                            </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                            <label for="floatingPassword">Penulis</label>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 ms-2" style="height: 110px; width: 110px;">
-                                                <img src="{{ url ('gambar/bukuu.png') }}" class="img-fluid rounded">
-                                            </div>
-                                            <div class="fs-3 ms-3">
-                                                <p class="font-semibold text-fixed">
-                                                    Judul Buku
-                                                </p>
-                                            </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                            <label for="floatingPassword">Penerbit</label>
                                         </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                            <label for="floatingPassword">Kategori</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                            <label for="floatingPassword">Stok</label>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="file" class="form-control" id="input">
+                                            <label class="" for="input"></label>
+                                          </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Profile Visit</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="chart-profile-visit"></div>
-                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+                <section class="container">
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Judul</th>
+                                <th scope="col">Penulis</th>
+                                <th scope="col">Tahun Terbit</th>
+                                <th scope="col">Kategori</th>
+                                <th scope="col">Stok</th>
+                                <th scope="col">Gambar</th>
+                                <th scope="col">Opsi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <img class="gambar" src="{{ url('gambar/orang.png') }}" alt="">
+                                </td>
+                                <td>
+                                    <!-- Example single danger button -->
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Action
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Detail</a></li>
+                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        <li><a class="dropdown-item" href="#">Hapus</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                              <tr>
+                                <td>2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>
+                                    <img class="gambar" src="{{ url('gambar/orang.png') }}" alt="">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>3</td>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </section>
             </div>
-
+        </div>
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
