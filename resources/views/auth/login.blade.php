@@ -19,20 +19,22 @@
                 <h3 class="card-title text-center text-light fw-bold mt-3">Login</h3>
                 <div class="card-body">
                     <div class="container">
-                        <form>
+                        <form action="{{ route('postlogin') }}" method="POST">
+                            @csrf
                             <div class="mb-3 my-3 text-light fw-bold" style="height: 100px">
-                                <label for="exampleFormControlInput1" class="form-label">Usernane</label>
+                                <label class="form-label">Email</label>
                                 <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                    name="email">
                             </div>
                             <div class="mb-3 text-light fw-bold">
-                                <label for="exampleFormControlInput1" class="form-label">Password</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control"
+                                    name="password">
                             </div>
 
-                            <div class="d-flex justify-content-center mt-5 btn btn-danger">
-                                <a class="nav-link active" aria-current="page" href="{{ url('dashboard') }}"> Login</a>
+                            <div class="d-flex justify-content-center mt-5">
+                                <button class="btn btn-primary" type="submit">Login</button>
+                                {{-- <a class="nav-link" aria-current="page" href="{{ route('postlogin') }}">Login</a> --}}
                             </div>
                         </form>
                     </div>

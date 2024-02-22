@@ -43,7 +43,7 @@
             <div class="d-flex justify-content-between">
                 <div class="collapse navbar-collapse" id="navbarSupported">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                        <a class="nav-link active" aria-current="page" href="{{ url('login') }}"> Login</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('login')}}"> Login</a>
                     </ul>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                         <a class="nav-link active" aria-current="page" href="{{ url('register') }}"> Register</a>
