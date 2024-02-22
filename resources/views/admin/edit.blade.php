@@ -9,38 +9,37 @@
                 <div class="container">
                     <div class="card p-2">
                         <div class="card-header">
-                            <h3>Tambah Buku</h3>
+                            <h3>Edit Buku</h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('store') }}" method="POST">
+                            <form action="{{ route('update', $adm->id) }}" method="POST">
                                 @csrf
                                 <div class="form-floating mb-3">
-                                  <input type="text" class="form-control" name="judul" id="judul" placeholder="name@example.com">
+                                  <input type="text" class="form-control" name="judul" id="judul" value="{{ $adm->judul }}">
                                   <label for="floatingInput">Judul</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="penulis" id="penulis" placeholder="name@example.com">
+                                    <input type="text" class="form-control" name="penulis" id="penulis" value="{{ $adm->penulis }}">
                                     <label for="floatingPassword">Penulis</label>
                                 </div>
                                         <div class="form-floating mb-3">
-                                            <input type="date" class="form-control" name="thn_terbit" id="thn_terbit" placeholder="name@example.com">
+                                            <input type="date" class="form-control" name="thn_terbit" id="thn_terbit" value="{{ $adm->thn_terbit }}">
                                             <label for="floatingPassword">Tahun Terbit</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="kategori" id="kategori" placeholder="name@example.com">
+                                            <input type="text" class="form-control" name="kategori" id="kategori" value="{{ $adm->kategori }}">
                                             <label for="floatingPassword">Kategori</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="stok" id="stok" placeholder="name@example.com">
+                                            <input type="text" class="form-control" name="stok" id="stok" value="{{ $adm->stok }}">
                                             <label for="floatingPassword">Stok</label>
                                         </div>
-                                        <div class="mb-3">
-                                            <input type="file" class="form-control" aria-label="file example" required>
-                                            <div class="invalid-feedback"></div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" name="gambar" id="gambar" value="{{ $adm->gambar }}">
+                                            <label for="floatingPassword">Gambar</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <button type="submit" class="btn-close" aria-label="Close"></button>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                             </form>

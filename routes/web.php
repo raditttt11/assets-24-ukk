@@ -35,10 +35,6 @@ route::get('/kategori', function() {
     return view('dashboard.kategori');
 });
 
-route::get('/buku', function () {
-    return view('dashboard.buku');
-});
-
 route::get('/minjam', function() {
     return view('dashboard.minjam');
 });
@@ -57,4 +53,10 @@ route::get('/login', [App\Http\Controllers\LoginController::class, 'login'])->na
 route::post('/postlogin', [App\Http\Controllers\LoginController::class, 'postlogin'])->name('postlogin');
 
 // create Buku
+route::get('/index', [App\Http\Controllers\BukuController::class, 'index'])->name('index');
 route::get('/create', [App\Http\Controllers\BukuController::class, 'create'])->name('create');
+Route::post('/store', [App\Http\Controllers\BukuController::class, 'store'])->name('store');
+route::get('/buku', [App\Http\Controllers\BukuController::class, 'index'])->name('buku');
+route::get('/edit/{id}', [App\Http\Controllers\BukuController::class, 'edit'])->name('edit');
+route::post('/update/{id}', [App\Http\Controllers\BukuController::class, 'update'])->name('update');
+route::get('/destroy/{id}', [App\Http\Controllers\BukuController::class, 'destroy'])->name('destroy');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 
 class BukuController extends Controller
@@ -11,7 +12,8 @@ class BukuController extends Controller
      */
     public function index()
     {
-        return view('admin.create');
+        $buku = Admin::all();
+        return view('dashboard.buku', compact('buku'));
     }
 
     /**
@@ -19,7 +21,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -27,7 +29,16 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        Admin::create([
+            'judul' => $request->judul,
+            'penulis' => $request->penulis,
+            'thn_terbit' => $request->thn_terbit,
+            'kategori' => $request->kategori,
+            'stok' => $request->stok,
+            'gambar' => $request->gambar
+        ]);
+        return redirect('index');
     }
 
     /**
@@ -43,7 +54,8 @@ class BukuController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $adm = Admin::findorfail($id);
+        return view('admin.edit', compact('adm'));
     }
 
     /**
@@ -51,7 +63,9 @@ class BukuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $adm = Admin::findorfail($id);
+        $adm->update($request->all());
+        return redirect('index');
     }
 
     /**
@@ -59,6 +73,9 @@ class BukuController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $adm = Admin::findorfail($id);
+        $adm->delete();
+
+        return back();
     }
 }

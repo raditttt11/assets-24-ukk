@@ -25,7 +25,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed w-100" style="background-color: #ffffff">
         <div class="container">
-            <span class="navbar-brand font-a fw-bold" href="/">RowBOOK</span>
+            <span class="navbar-brand font-a fw-bold" href="/">BoBOO</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                         <a class="nav-link active" name="about" href="#">About </a>
-                        <a class="nav-link" href="#"> Contact </a>
+                        <a class="nav-link active" href="#"> Contact </a>
                     </ul>
                 </div>
             </div>
@@ -59,9 +59,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="text-mid">
-                            <h1>RowBOOK</h1>
-                            <P class="mx-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-                                veritatis.</P>
+                            <h1>BoBOO</h1>
+                            <P class="mx-3">Temukan Berbagai Buku Hanya Di BoBOO</P>
                         </div>
                     </div>
                     <div class="col d-flex justify-content-end">
