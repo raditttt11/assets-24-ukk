@@ -66,7 +66,6 @@
                                                 Action
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Detail</a></li>
                                                 <li><a class="dropdown-item" href="#">Edit</a></li>
                                                 <li><a class="dropdown-item" href="#">Hapus</a></li>
                                                 </ul>

@@ -35,7 +35,7 @@
                                             <label for="floatingPassword">Stok</label>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="file" class="form-control" aria-label="file example" name="gambar" id="gambar" required>
+                                            <input type="file" class="form-control" aria-label="file example" name="gambar" id="gambar">
                                             <div class="invalid-feedback"></div>
                                         </div>
                                     </div>

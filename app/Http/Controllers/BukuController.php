@@ -29,6 +29,14 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
+        // $this->validate($request, [
+        //     'image'     => 'required|image|mimes:png,jpg,jpeg',
+        // ]);
+        $this->validate($request, [
+            'gambar' => 'required|image|mimes:png,jpg,jpeg',
+        ]);
+        $img = $request->file('gambar');
+        $img->storeAs('public/storage/image', $img->hashName());
         // dd($request->all());
         Admin::create([
             'judul' => $request->judul,
@@ -36,16 +44,12 @@ class BukuController extends Controller
             'thn_terbit' => $request->thn_terbit,
             'kategori' => $request->kategori,
             'stok' => $request->stok,
-            'gambar' => $request->gambar,
+            'gambar' => $img->hashName(),
         ]);
 
-        $nm = $request->gambar;
-        $namafile = time() . rand(100, 999) . '.' . $nm->getClientOriginalExtension();
-        $dtupload = new Admin;
-        $dtupload->gambar = $namafile;
-        $nm->move(public_path() . '/assets/img', $namafile);
-        $dtupload->save();
-        return redirect('index');
+
+
+        return redirect('/buku');
     }
 
     /**
@@ -72,7 +76,7 @@ class BukuController extends Controller
     {
         $adm = Admin::findorfail($id);
         $adm->update($request->all());
-        return redirect('index');
+        return redirect('/buku');
     }
 
     /**

@@ -53,7 +53,7 @@
                                     <td>{{ $item->kategori }}</td>
                                     <td>{{ $item->stok }}</td>
                                     <td>
-                                        <img src="{{ asset('img/' . $item->gambar) }}" alt="">
+                                        <a href="{{ asset('storage\storage\image/' . $item->gambar) }}" target="_blank" rel="noopener">Lihat Gambarrr</a>
                                         {{-- <img {{ asset('storage/' . $item->image) }}> --}}
                                     </td>
                                     <td>
@@ -63,7 +63,6 @@
                                             Action
                                             </button>
                                             <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Detail</a></li>
                                             <li><a class="dropdown-item" href="{{ route('edit', $item->id) }}">Edit</a></li>
                                             <li><a class="dropdown-item" href="{{ route('destroy', $item->id) }}">Hapus</a></li>
                                             </ul>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Minjam;
 use Illuminate\Http\Request;
 
 class MinjamController extends Controller
@@ -11,7 +12,8 @@ class MinjamController extends Controller
      */
     public function index()
     {
-        return view('dashboard.minjam');
+        $minjam = Minjam::all();
+        return view('dashboard.minjam', compact('minjam'));
     }
 
     /**
@@ -19,6 +21,7 @@ class MinjamController extends Controller
      */
     public function create()
     {
+        return view('admin.create-peminjam');
     }
 
     /**
@@ -26,7 +29,14 @@ class MinjamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Minjam::create([
+            'judul' => $request->judul,
+            'tgl_pinjam' => $request->tgl_pinjam,
+            'tgl_kembali' => $request->tgl_kembali,
+            'status' => $request->status,
+            'peminjam' => $request->peminjam,
+        ]);
+        return redirect('/minjam');
     }
 
     /**
@@ -42,7 +52,8 @@ class MinjamController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pmjm = Minjam::findorfail($id);
+        return view('admin.edit-minjam', compact('pmjm'));
     }
 
     /**
@@ -50,7 +61,10 @@ class MinjamController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $pmjm = Minjam::findorfail($id);
+        $pmjm->update($request->all());
+        return redirect('/minjam');
     }
 
     /**
@@ -58,6 +72,8 @@ class MinjamController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pmjm = Minjam::findorfail($id);
+        $pmjm->delete();
+        return back();
     }
 }

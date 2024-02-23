@@ -12,7 +12,7 @@ class Minjam extends Model
         'id',
         'judul',
         'tgl_pinjam',
-        'thn_kembali',
+        'tgl_kembali',
         'status',
         'peminjam',
     ];

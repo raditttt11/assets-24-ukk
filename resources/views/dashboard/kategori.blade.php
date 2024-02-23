@@ -54,7 +54,6 @@
                                                         Action
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Detail</a></li>
                                                         <li><a class="dropdown-item" href="{{ route('edit-kategori', $item->id) }}">Edit</a></li>
                                                         <li><a class="dropdown-item" href="{{ route('destroy-kategori', $item->id) }}">Hapus</a></li>
                                                     </ul>

@@ -29,7 +29,10 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
-                                <div class="d-flex justify-content-end mb-3">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div class="p-2">
+                                        <a class="btn btn-primary" href="{{ route('create-peminjam') }}" role="button">Disini Minjam !!</a>
+                                    </div>
                                     <form class="d-flex" role="search">
                                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -47,42 +50,29 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td>Mark</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>
-                                            <img class="gambar" src="{{ url('gambar/orang.png') }}" alt="">
-                                        </td>
-                                        <td>
-                                            <!-- Example single danger button -->
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Action
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Detail</a></li>
-                                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                <li><a class="dropdown-item" href="#">Hapus</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                      <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                      </tr>
-                                      <tr>
-                                        <td>3</td>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                      </tr>
-                                    </tbody>
+                                        @foreach ($minjam as $item)
+                                        <tr>
+                                            <td>{{ $item->judul }}</td>
+                                            <td>{{ $item->tgl_pinjam }}</td>
+                                            <td>{{ $item->tgl_kembali }}</td>
+                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->peminjam }}</td>
+                                            <td>
+                                                <!-- Example single danger button -->
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Action
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="{{ route('edit-peminjam', $item->id) }}">Edit</a></li>
+                                                        <li><a class="dropdown-item" href="{{ route('destroy-peminjam', $item->id) }}">Hapus</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            @endforeach
+                                        </tbody>
                                   </table>
                             </div>
                         </div>

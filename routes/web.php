@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MinjamController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\LoginController;
@@ -69,6 +70,12 @@ route::get('/destroy-kategori/{id}', [App\Http\Controllers\KategoriController::c
 
 // Minjam
 Route::get('/minjam', [App\Http\Controllers\MinjamController::class, 'index'])->name('index');
+Route::get('/create-peminjam', [App\Http\Controllers\MinjamController::class, 'create'])->name('create-peminjam');
+Route::post('/store-peminjam', [App\Http\Controllers\MinjamController::class, 'store'])->name('store-peminjam');
+Route::get('/minjam', [App\Http\Controllers\MinjamController::class, 'index'])->name('minjam');
+Route::get('/edit-minjam/{id}', [App\Http\Controllers\MinjamController::class, 'edit'])->name('edit-peminjam');
+Route::post('/update-minjam/{id}', [App\Http\Controllers\MinjamController::class, 'update'])->name('update-minjam');
+Route::get('/destroy-peminjam/{id}', [App\Http\Controllers\MinjamController::class, 'destroy'])->name('destroy-peminjam');
 
 
 Route::middleware(['middleware', 'admin'])->group(function () {
