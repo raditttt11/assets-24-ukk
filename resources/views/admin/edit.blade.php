@@ -35,8 +35,7 @@
                                             <label for="floatingPassword">Stok</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="gambar" id="gambar" value="{{ $adm->gambar }}">
-                                            <label for="floatingPassword">Gambar</label>
+                                            <img src="{{ asset('img/' . $adm->image) }}" alt="">
                                         </div>
                                     </div>
                                     <div class="mb-3">

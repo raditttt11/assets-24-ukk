@@ -22,15 +22,13 @@
             </header>
 
             <div class="page-heading my-3">
-                <div class="row">
+                <div class="container">
                     <div class="">
                         <h3>BUKU KUU</h3>
                     </div>
                 </div>
             </div>
-                <section class="container-fluid">
-                    <div class="card">
-                        <div class="card-body">
+                <section class="container">
                             <div class="row">
                                 <div class="d-flex justify-content-end mb-3">
                                     <form class="d-flex" role="search">
@@ -41,34 +39,35 @@
                                 <table class="table table-striped table-bordered table-responsive">
                                     <thead class="table-light">
                                       <tr>
-                                        <th scope="col">ID</th>
                                         <th scope="col">Kategori</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                     </thead>
                                     <tbody class="table table-hover">
-                                      <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>
-                                            <!-- Example single danger button -->
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Action
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Detail</a></li>
-                                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                <li><a class="dropdown-item" href="#">Hapus</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
+                                        @foreach ($data as $item)
+                                        <tr>
+                                            <td>{{ $item->kategori }}</td>
+                                            <td>
+                                                <!-- Example single danger button -->
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Action
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">Detail</a></li>
+                                                        <li><a class="dropdown-item" href="{{ route('edit-kategori', $item->id) }}">Edit</a></li>
+                                                        <li><a class="dropdown-item" href="{{ route('destroy-kategori', $item->id) }}">Hapus</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            @endforeach
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-end mb-3">
+                                    <a class="btn btn-primary" href="{{ route('create-kategori') }}" role="button">Tambah Kategori</a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
                 </section>
             </div>
         </div>

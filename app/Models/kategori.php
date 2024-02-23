@@ -5,18 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class kategori extends Model
 {
-
-    // Untuk Table Buku
-    protected $table = 'buku';
+    protected $table = 'kategori';
     protected $fillable = [
         'id',
-        'judul',
-        'penulis',
-        'thn_terbit',
         'kategori',
-        'stok',
-        'gambar',
     ];
 }

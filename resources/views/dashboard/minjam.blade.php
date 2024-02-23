@@ -38,7 +38,6 @@
                                 <table class="table table-bordered table-responsive">
                                     <thead class="table-light">
                                       <tr>
-                                        <th scope="col">ID</th>
                                         <th scope="col">Judul</th>
                                         <th scope="col">Tanggal Pinjam</th>
                                         <th scope="col">Tanggal Kembali</th>
@@ -49,8 +48,8 @@
                                     </thead>
                                     <tbody>
                                       <tr>
-                                        <td>1</td>
                                         <td>Mark</td>
+                                        <td>@mdo</td>
                                         <td>@mdo</td>
                                         <td>@mdo</td>
                                         <td>

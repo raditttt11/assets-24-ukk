@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -29,14 +30,6 @@ route::get('/register', function () {
 
 route::get('/koleksi', function() {
     return view('dashboard.koleksi');
-});
-
-route::get('/kategori', function() {
-    return view('dashboard.kategori');
-});
-
-route::get('/minjam', function() {
-    return view('dashboard.minjam');
 });
 
 route::get('/profil', function() {
@@ -60,3 +53,26 @@ route::get('/buku', [App\Http\Controllers\BukuController::class, 'index'])->name
 route::get('/edit/{id}', [App\Http\Controllers\BukuController::class, 'edit'])->name('edit');
 route::post('/update/{id}', [App\Http\Controllers\BukuController::class, 'update'])->name('update');
 route::get('/destroy/{id}', [App\Http\Controllers\BukuController::class, 'destroy'])->name('destroy');
+
+// Register
+route::get('/register', [App\Http\Controllers\LoginController::class, 'register'])->name('register');
+route::post('/postregister', [App\Http\Controllers\LoginController::class, 'postregister'])->name('postregister');
+
+// Kategori
+route::get('/index', [App\Http\Controllers\KategoriController::class, 'index'])->name('index');
+route::get('/create-kategori', [App\Http\Controllers\KategoriController::class, 'create'])->name('create-kategori');
+Route::post('/store-kategori', [App\Http\Controllers\KategoriController::class, 'store'])->name('store-kategori');
+route::get('/data', [App\Http\Controllers\KategoriController::class, 'index'])->name('data');
+route::get('/edit-kategori/{id}', [App\Http\Controllers\KategoriController::class, 'edit'])->name('edit-kategori');
+route::post('/update-kategori/{id}', [App\Http\Controllers\KategoriController::class, 'update'])->name('update-kategori');
+route::get('/destroy-kategori/{id}', [App\Http\Controllers\KategoriController::class, 'destroy'])->name('destroy-kategori');
+
+// Minjam
+Route::get('/minjam', [App\Http\Controllers\MinjamController::class, 'index'])->name('index');
+
+
+Route::middleware(['middleware', 'admin'])->group(function () {
+    Route::get('admin', function () {
+        return 'admin page';
+    });
+});

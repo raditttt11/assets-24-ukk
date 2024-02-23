@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\kategori;
 use Illuminate\Http\Request;
 
-class BukuController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $buku = Admin::all();
-        return view('dashboard.buku', compact('buku'));
+        $data = kategori::all();
+        return view("dashboard.kategori", compact("data"));
     }
 
     /**
@@ -21,7 +21,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view("admin.create-kategori");
     }
 
     /**
@@ -29,22 +29,9 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        Admin::create([
-            'judul' => $request->judul,
-            'penulis' => $request->penulis,
-            'thn_terbit' => $request->thn_terbit,
+        kategori::create([
             'kategori' => $request->kategori,
-            'stok' => $request->stok,
-            'gambar' => $request->gambar,
         ]);
-
-        $nm = $request->gambar;
-        $namafile = time() . rand(100, 999) . '.' . $nm->getClientOriginalExtension();
-        $dtupload = new Admin;
-        $dtupload->gambar = $namafile;
-        $nm->move(public_path() . '/assets/img', $namafile);
-        $dtupload->save();
         return redirect('index');
     }
 
@@ -61,8 +48,8 @@ class BukuController extends Controller
      */
     public function edit(string $id)
     {
-        $adm = Admin::findorfail($id);
-        return view('admin.edit', compact('adm'));
+        $ktgri = kategori::findorfail($id);
+        return view('admin.edit-kategori', compact('ktgri'));
     }
 
     /**
@@ -70,8 +57,8 @@ class BukuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $adm = Admin::findorfail($id);
-        $adm->update($request->all());
+        $ktgri = kategori::findorfail($id);
+        $ktgri->update($request->all());
         return redirect('index');
     }
 
@@ -80,9 +67,9 @@ class BukuController extends Controller
      */
     public function destroy(string $id)
     {
-        $adm = Admin::findorfail($id);
-        $adm->delete();
+        $ktgri = kategori::findorfail($id);
+        $ktgri->delete();
 
-        return back();
+        return back()->with('message-danger', 'Data Berhasil Di Hapuss');
     }
 }

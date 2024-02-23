@@ -31,29 +31,27 @@
                 </div>
             </div>
             <div class="page-content">
-                <section class="container-fluid">
+                <section class="container">
                     <div class="row">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-end mb-3">
-                                    <form class="d-flex" role="search">
+                        <div class="d-flex justify-content-end mb-3">
+                            <form class="d-flex" role="search">
                                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                         <button class="btn btn-outline-success" type="submit">Search</button>
-                                    </form>
-                                </div>
-                                <table class="table table-bordered table-responsive">
-                                    <thead class="table-light">
-                                      <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Judul</th>
-                                        <th scope="col">Penulis</th>
-                                        <th scope="col">Kategori</th>
-                                        <th scope="col">Gambar</th>
-                                        <th scope="col">Opsi</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
+                            </form>
+                        </div>
+                        <table class="table table-bordered table-responsive">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Judul</th>
+                                    <th scope="col">Penulis</th>
+                                    <th scope="col">Kategori</th>
+                                    <th scope="col">Gambar</th>
+                                    <th scope="col">Opsi</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
                                         <td>1</td>
                                         <td>Mark</td>
                                         <td>@mdo</td>
@@ -75,23 +73,21 @@
                                             </div>
                                         </td>
                                     </tr>
-                                      <tr>
+                                    <tr>
                                         <td>2</td>
                                         <td>Jacob</td>
                                         <td>Thornton</td>
                                         <td>@fat</td>
                                         <td>@fat</td>
                                         <td>@fat</td>
-                                      </tr>
-                                      <tr>
+                                    </tr>
+                                    <tr>
                                         <td>3</td>
                                         <td colspan="2">Larry the Bird</td>
                                         <td>@twitter</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                            </div>
-                        </div>
+                                    </tr>
+                                </tbody>
+                        </table>
                     </div>
                 </section>
             </div>

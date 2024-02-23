@@ -12,7 +12,7 @@
                             <h3>Tambah Buku</h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('store') }}" method="POST">
+                            <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-floating mb-3">
                                   <input type="text" class="form-control" name="judul" id="judul" placeholder="name@example.com">
@@ -35,7 +35,7 @@
                                             <label for="floatingPassword">Stok</label>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="file" class="form-control" aria-label="file example" required>
+                                            <input type="file" class="form-control" aria-label="file example" name="gambar" id="gambar" required>
                                             <div class="invalid-feedback"></div>
                                         </div>
                                     </div>

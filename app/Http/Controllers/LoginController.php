@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -19,6 +21,25 @@ class LoginController extends Controller
             return redirect('/buku');
         }
     }
+
+    public function register()
+    {
+        return view('auth.register');
+    }
+
+    public function postregister(Request $request)
+    {
+        // dd($request->all());
+        User::create([
+            'name' => $request->name,
+            'level' => "Peminjam",
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            "remember_token" => Str::random(60),
+        ]);
+        return redirect("/login");
+    }
+
 }
 
 

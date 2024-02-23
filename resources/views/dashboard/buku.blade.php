@@ -22,7 +22,9 @@
             </header>
 
             <div class="page-heading my-3">
-                <h3>BUKU KUU</h3>
+                <div class="container">
+                    <h3>BUKU KUU</h3>
+                </div>
             </div>
             <div class="page-content">
                 <section class="container">
@@ -45,13 +47,13 @@
                                 <tbody>
                                     @foreach ($buku as $item )
                                   <tr>
-                                    <td>{{  $item->judul }}</td>
+                                    <td>{{ $item->judul }}</td>
                                     <td>{{ $item->penulis }}</td>
                                     <td>{{ $item->thn_terbit }}</td>
                                     <td>{{ $item->kategori }}</td>
                                     <td>{{ $item->stok }}</td>
                                     <td>
-                                        {{ $item->image }}
+                                        <img src="{{ asset('img/' . $item->gambar) }}" alt="">
                                         {{-- <img {{ asset('storage/' . $item->image) }}> --}}
                                     </td>
                                     <td>

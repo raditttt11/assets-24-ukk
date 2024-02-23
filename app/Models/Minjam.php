@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class Minjam extends Model
 {
-
-    // Untuk Table Buku
-    protected $table = 'buku';
+    protected $table = 'minjam';
     protected $fillable = [
         'id',
         'judul',
-        'penulis',
-        'thn_terbit',
-        'kategori',
-        'stok',
-        'gambar',
+        'tgl_pinjam',
+        'thn_kembali',
+        'status',
+        'peminjam',
     ];
 }

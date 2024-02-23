@@ -2,9 +2,8 @@
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="logo">
-                            <a href="index.html"><img src=".{{ asset('dist/assets/compiled/svg/logo.svg') }}"
-                                    alt="Logo" srcset="" /></a>
+                        <div class="p-2 mt-3 logo">
+                            <h3>BoBOO</h3>
                         </div>
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -44,25 +43,24 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-title">Menu</li>
-
+                        <li class="sidebar-title fw-bold">Menu</li>
                         <li class="sidebar-item">
                             <a href="{{ url('buku') }}" class="sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-book"></i>
                                 <span>Buku</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item ">
                             <a href="{{ url('koleksi') }}" class="sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-bookmark-fill"></i>
                                 <span>Koleksi</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="{{ url('kategori') }}" class="sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
+                            <a href="{{ url('data') }}" class="sidebar-link">
+                                <i class="bi bi-tag"></i>
                                 <span>Kategori</span>
                             </a>
                         </li>
@@ -75,7 +73,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ url('welcome') }}" class="sidebar-link">
+                            <a href="{{ url('/') }}" class="sidebar-link">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>Logout</span>
                             </a>

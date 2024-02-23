@@ -18,54 +18,52 @@
                 </a>
                 <h3 class="card-title text-center text-light fw-bold mt-3">Register</h3>
                 <div class="card-body">
-                    <form>
+                    <form action="{{ route('postregister') }}" method="POST">
+                        @csrf
                         <div class="container">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col">
                                     <div class="mb-3 my-3 text-light fw-bold">
                                         <label for="exampleFormControlInput1" class="form-label">Usernane</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="name"
                                         >
                                     </div>
                                     <div class="mb-3 my-3 text-light fw-bold">
                                         <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                        <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
                                         >
                                     </div>
                                     <div class="mb-3 text-light fw-bold">
                                         <label for="exampleFormControlInput1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleFormControlInput1">
+                                        <input type="password" class="form-control" id="exampleFormControlInput1" name="password" >
                                     </div>
-                                    <div class="mb-3 text-light fw-bold">
-                                        <label for="exampleFormControlInput1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleFormControlInput1">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="mb-3 my-3 text-light fw-bold">
-                                        <label for="exampleFormControlInput1" class="form-label">Usernane</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                        >
-                                    </div>
-                                    <div class="mb-3 my-3 text-light fw-bold">
-                                        <label for="exampleFormControlInput1" class="form-label">Usernane</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                        >
-                                    </div>
-                                    <div class="mb-3 my-3 text-light fw-bold">
-                                        <label for="exampleFormControlInput1" class="form-label">Usernane</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                        >
-                                    </div>
-                                    <div class="mb-3 my-3 text-light fw-bold">
-                                        <label for="exampleFormControlInput1" class="form-label">Usernane</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                        >
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-primary" type="submit">Register</button>
                                     </div>
                                 </div>
-                                    <div class="d-flex justify-content-center mt-5 btn btn-danger">
-                                        <a href="{{ url('login') }}" class="nav-link active" aria-current="page"> Daftar</a>
+                                {{-- <div class="col-6">
+                                    <div class="mb-3 my-3 text-light fw-bold">
+                                        <label for="exampleFormControlInput1" class="form-label">Usernane</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        >
                                     </div>
+                                    <div class="mb-3 my-3 text-light fw-bold">
+                                        <label for="exampleFormControlInput1" class="form-label">Usernane</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        >
+                                    </div>
+                                    <div class="mb-3 my-3 text-light fw-bold">
+                                        <label for="exampleFormControlInput1" class="form-label">Usernane</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        >
+                                    </div>
+                                    <div class="mb-3 my-3 text-light fw-bold">
+                                        <label for="exampleFormControlInput1" class="form-label">Usernane</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        >
+                                    </div>
+                                </div> --}}
+
                             </div>
                         </div>
                     </form>
