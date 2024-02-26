@@ -77,8 +77,7 @@
                     <div class="col">
                         <div class="text-mid">
                             <h1>About US</h1>
-                            <P class="mx-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-                                veritatis.</P>
+                            <P class="mx-3">BoBOO Website Perpustakan Informasi Tentang Buku Yang Tersedia</P>
                         </div>
                     </div>
                     <div class="col d-flex justify-content-end">

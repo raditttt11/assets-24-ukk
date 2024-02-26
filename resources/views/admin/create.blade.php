@@ -40,7 +40,6 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <button type="submit" class="btn-close" aria-label="Close"></button>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                             </form>

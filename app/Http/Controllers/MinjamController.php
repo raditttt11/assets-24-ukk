@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Minjam;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class MinjamController extends Controller
      */
     public function create()
     {
-        return view('admin.create-peminjam');
+        $book = Admin::get();
+        return view('admin.create-peminjam', compact('book'));
     }
 
     /**
@@ -30,11 +32,11 @@ class MinjamController extends Controller
     public function store(Request $request)
     {
         Minjam::create([
-            'judul' => $request->judul,
             'tgl_pinjam' => $request->tgl_pinjam,
             'tgl_kembali' => $request->tgl_kembali,
             'status' => $request->status,
             'peminjam' => $request->peminjam,
+            'id_buku' => $request->id_buku,
         ]);
         return redirect('/minjam');
     }

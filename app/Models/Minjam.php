@@ -10,10 +10,15 @@ class Minjam extends Model
     protected $table = 'minjam';
     protected $fillable = [
         'id',
-        'judul',
         'tgl_pinjam',
         'tgl_kembali',
         'status',
         'peminjam',
+        'id_buku',
     ];
+
+    public function buku()
+    {
+        return $this->belongsTo(Admin::class, 'id_buku');
+    }
 }

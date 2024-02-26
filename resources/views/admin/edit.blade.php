@@ -12,7 +12,7 @@
                             <h3>Edit Buku</h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('update', $adm->id) }}" method="POST">
+                            <form action="{{ route('update', $adm->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-floating mb-3">
                                   <input type="text" class="form-control" name="judul" id="judul" value="{{ $adm->judul }}">
@@ -34,8 +34,12 @@
                                             <input type="text" class="form-control" name="stok" id="stok" value="{{ $adm->stok }}">
                                             <label for="floatingPassword">Stok</label>
                                         </div>
-                                        <div class="form-floating mb-3">
-                                            <img src="{{ asset('img/' . $adm->image) }}" alt="">
+                                        <div class="mb-3">
+                                            <input type="file" class="form-control" aria-label="file example" name="gambar" id="gambar">
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <img src="{{ asset('storage/storage/image/'.$adm->gambar) }}" alt="">
                                         </div>
                                     </div>
                                     <div class="mb-3">

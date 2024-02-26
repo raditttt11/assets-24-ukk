@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage as FacadesStorage;
 class BukuController extends Controller
 {
     /**
@@ -74,9 +74,31 @@ class BukuController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // dd(($request->all()));
         $adm = Admin::findorfail($id);
-        $adm->update($request->all());
+
+        $awal = $adm->gambar;
+        $img = $request->file('gambar');
+        $img->storeAs('public/storage/image', $img->hashName());
+        $adm->update([
+            'judul' => $request->judul,
+            'penulis' => $request->penulis,
+            'thn_terbit' => $request->thn_terbit,
+            'kategori' => $request->kategori,
+            'stok' => $request->stok,
+            'gambar' => $img->hashName(),
+        ]);
         return redirect('/buku');
+
+        // $this->validate($request, [
+            //     'gambar' => 'required|image|mimes:png,jpg,jpeg',
+            // ]);
+        // if ($request->hasFile('gambar')) {
+        //     $img = $request->file('gambar');
+        //     $img->storeAs('public/storage/image', $img->hashName());
+
+        //     FacadesStorage::delete('public/storage/image/' . $request->gambar);
+        // }
     }
 
     /**

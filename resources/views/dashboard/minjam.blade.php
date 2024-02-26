@@ -25,10 +25,10 @@
                 <h3>Peminjaman</h3>
             </div>
             <div class="page-content">
-                <section class="container-fluid">
+                <section class="container">
                     <div class="row">
-                        <div class="card">
-                            <div class="card-body">
+                        <div class="">
+                            <div class="">
                                 <div class="d-flex justify-content-between mb-3">
                                     <div class="p-2">
                                         <a class="btn btn-primary" href="{{ route('create-peminjam') }}" role="button">Disini Minjam !!</a>
@@ -52,7 +52,7 @@
                                     <tbody>
                                         @foreach ($minjam as $item)
                                         <tr>
-                                            <td>{{ $item->judul }}</td>
+                                            <td>{{ $item->buku->judul }}</td>
                                             <td>{{ $item->tgl_pinjam }}</td>
                                             <td>{{ $item->tgl_kembali }}</td>
                                             <td>{{ $item->status }}</td>

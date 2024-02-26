@@ -46,7 +46,7 @@ route::get('/create', function () {
 route::get('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
 route::post('/postlogin', [App\Http\Controllers\LoginController::class, 'postlogin'])->name('postlogin');
 
-// create Buku
+//  Buku
 route::get('/index', [App\Http\Controllers\BukuController::class, 'index'])->name('index');
 route::get('/create', [App\Http\Controllers\BukuController::class, 'create'])->name('create');
 Route::post('/store', [App\Http\Controllers\BukuController::class, 'store'])->name('store');

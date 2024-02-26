@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('minjam', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
             $table->date('tgl_pinjam');
             $table->date('tgl_kembali');
             $table->string('status');
             $table->string('peminjam');
+            $table->unsignedBigInteger('id_buku');
+            $table->foreign('id_buku')->references('id')->on('buku')->onDelete('cascade');
             $table->timestamps();
         });
+
     }
 
     /**

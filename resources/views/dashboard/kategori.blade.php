@@ -24,7 +24,7 @@
             <div class="page-heading my-3">
                 <div class="container">
                     <div class="">
-                        <h3>BUKU KUU</h3>
+                        <h3>KATEGORI</h3>
                     </div>
                 </div>
             </div>

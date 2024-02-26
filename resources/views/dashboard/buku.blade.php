@@ -32,7 +32,7 @@
                         <a class="btn btn-primary" href="{{ route('create') }}" role="button">Tambah Buku</a>
                     </div>
                         <form action="">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-responsive">
                                 <thead class="table-light">
                                   <tr>
                                     <th scope="col">Judul</th>
@@ -53,8 +53,8 @@
                                     <td>{{ $item->kategori }}</td>
                                     <td>{{ $item->stok }}</td>
                                     <td>
-                                        <a href="{{ asset('storage\storage\image/' . $item->gambar) }}" target="_blank" rel="noopener">Lihat Gambarrr</a>
-                                        {{-- <img {{ asset('storage/' . $item->image) }}> --}}
+                                        {{-- <a href="{{ asset('storage\storage\image/' . $item->gambar) }}" target="_blank" rel="noopener">Lihat Gambarrr</a> --}}
+                                        <img class="gambar" name="gambar" src="{{ asset('storage/storage/image/' . $item->gambar) }}" >
                                     </td>
                                     <td>
                                         <!-- Example single danger button -->

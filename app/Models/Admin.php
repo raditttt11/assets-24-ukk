@@ -19,4 +19,8 @@ class Admin extends Model
         'stok',
         'gambar',
     ];
+    public function minjam()
+    {
+        return $this->hasOne(Minjam::class, 'id');
+    }
 }
