@@ -42,18 +42,14 @@
                         <table class="table table-bordered table-responsive">
                             <thead class="table-light">
                                 <tr>
-                                    <th scope="col">ID</th>
                                     <th scope="col">Judul</th>
                                     <th scope="col">Penulis</th>
-                                    <th scope="col">Kategori</th>
                                     <th scope="col">Gambar</th>
                                     <th scope="col">Opsi</th>
                                 </tr>
                             </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
                                         <td>@mdo</td>
                                         <td>@mdo</td>
                                         <td>
@@ -66,24 +62,11 @@
                                                 Action
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Edit</a></li>
+                                                <li><a class="dropdown-item" href="#">detail</a></li>
                                                 <li><a class="dropdown-item" href="#">Hapus</a></li>
                                                 </ul>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
                                     </tr>
                                 </tbody>
                         </table>

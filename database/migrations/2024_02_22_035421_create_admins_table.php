@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('judul');
             $table->string('penulis');
             $table->date('thn_terbit');
-            $table->string('kategori');
             $table->integer('stok');
             $table->string('gambar');
+            $table->string('deskripsi');
+            $table->unsignedBigInteger('id_kategori');
+            $table->foreign('id_kategori')->references('id')->on('kategori')->cascadeOnDelete();
             $table->timestamps();
         });
     }

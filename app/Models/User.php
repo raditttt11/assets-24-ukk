@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -44,4 +45,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+
+
+    public function minjam(): HasMany
+    {
+        return $this->hasMany(Minjam::class, 'id_user', 'id');
+    }
+
+    public function ulas(): HasMany
+    {
+        return $this->hasMany(Ulasan::class, 'id_user', 'id');
+    }
+
+    public function koleksi(): HasMany
+    {
+        return $this->hasMany(Koleksi::class, 'id_user', 'id');
+    }
+
 }

@@ -39,6 +39,7 @@
                                     <th scope="col">Penulis</th>
                                     <th scope="col">Tahun Terbit</th>
                                     <th scope="col">Kategori</th>
+                                    <th scope="col">Deskripsi</th>
                                     <th scope="col">Stok</th>
                                     <th scope="col">Gambar</th>
                                     <th scope="col">Opsi</th>
@@ -50,10 +51,10 @@
                                     <td>{{ $item->judul }}</td>
                                     <td>{{ $item->penulis }}</td>
                                     <td>{{ $item->thn_terbit }}</td>
-                                    <td>{{ $item->kategori }}</td>
+                                    <td>{{ $item->kategori->kategori }}</td>
+                                    <td>{{ $item->deskripsi }}</td>
                                     <td>{{ $item->stok }}</td>
                                     <td>
-                                        {{-- <a href="{{ asset('storage\storage\image/' . $item->gambar) }}" target="_blank" rel="noopener">Lihat Gambarrr</a> --}}
                                         <img class="gambar" name="gambar" src="{{ asset('storage/storage/image/' . $item->gambar) }}" >
                                     </td>
                                     <td>
@@ -63,6 +64,7 @@
                                             Action
                                             </button>
                                             <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{{ route('detail', $item->id) }}">detail</a></li>
                                             <li><a class="dropdown-item" href="{{ route('edit', $item->id) }}">Edit</a></li>
                                             <li><a class="dropdown-item" href="{{ route('destroy', $item->id) }}">Hapus</a></li>
                                             </ul>

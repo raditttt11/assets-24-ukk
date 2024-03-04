@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\kategori;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage as FacadesStorage;
 class BukuController extends Controller
@@ -21,7 +23,8 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        $kategori = kategori::get();
+        return view('admin.create', compact('kategori'));
     }
 
     /**
@@ -43,7 +46,9 @@ class BukuController extends Controller
             'penulis' => $request->penulis,
             'thn_terbit' => $request->thn_terbit,
             'kategori' => $request->kategori,
+            'deskripsi' => $request->deskripsi,
             'stok' => $request->stok,
+            'id_kategori' => $request->id_kategori,
             'gambar' => $img->hashName(),
         ]);
 
@@ -57,7 +62,16 @@ class BukuController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $buku = Admin::where('id', $id)->first();
+        $kategori = kategori::where('id', $buku->id_kategori)->first();
+        $ulas = Ulasan::where('id_buku', $buku->id)->latest()->paginate(5);
+        return view('admin.detail-buku', [
+            'title' => 'Detail Buku',
+            'active' => 'buku',
+            'buku' => $buku,
+            'kategori' => $kategori,
+            'ulas' => $ulas
+        ]);
     }
 
     /**
@@ -86,6 +100,7 @@ class BukuController extends Controller
             'thn_terbit' => $request->thn_terbit,
             'kategori' => $request->kategori,
             'stok' => $request->stok,
+            'deskripsi' => $request->deskripsi,
             'gambar' => $img->hashName(),
         ]);
         return redirect('/buku');

@@ -6,25 +6,25 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Minjam extends Model
+class Ulasan extends Model
 {
-    protected $table = 'minjam';
-    protected $fillable = [
-        'id',
-        'tgl_pinjam',
-        'tgl_kembali',
-        'status',
-        'peminjam',
+    use HasFactory;
+    protected $table="ulasan";
+    protected $fillable=[
+        'id_user',
         'id_buku',
+        'ulasan',
+        'rating',
     ];
 
-    public function buku()
-    {
-        return $this->belongsTo(Admin::class, 'id_buku');
-    }
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
+    }
+
+    public function buku(): BelongsTo
+    {
+        return $this->belongsTo(Admin::class, 'id_buku', 'id');
     }
 }

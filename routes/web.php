@@ -5,6 +5,8 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KoleksiController;
+use App\Http\Controllers\UlasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +31,6 @@ route::get('/register', function () {
     return view('auth.register');
 });
 
-route::get('/koleksi', function() {
-    return view('dashboard.koleksi');
-});
-
 route::get('/profil', function() {
     return view('dashboard.profil');
 });
@@ -51,6 +49,7 @@ route::get('/index', [App\Http\Controllers\BukuController::class, 'index'])->nam
 route::get('/create', [App\Http\Controllers\BukuController::class, 'create'])->name('create');
 Route::post('/store', [App\Http\Controllers\BukuController::class, 'store'])->name('store');
 route::get('/buku', [App\Http\Controllers\BukuController::class, 'index'])->name('buku');
+route::get('/detail/{id}', [App\Http\Controllers\BukuController::class, 'show'])->name('detail');
 route::get('/edit/{id}', [App\Http\Controllers\BukuController::class, 'edit'])->name('edit');
 route::post('/update/{id}', [App\Http\Controllers\BukuController::class, 'update'])->name('update');
 route::get('/destroy/{id}', [App\Http\Controllers\BukuController::class, 'destroy'])->name('destroy');
@@ -76,6 +75,12 @@ Route::get('/minjam', [App\Http\Controllers\MinjamController::class, 'index'])->
 Route::get('/edit-minjam/{id}', [App\Http\Controllers\MinjamController::class, 'edit'])->name('edit-peminjam');
 Route::post('/update-minjam/{id}', [App\Http\Controllers\MinjamController::class, 'update'])->name('update-minjam');
 Route::get('/destroy-peminjam/{id}', [App\Http\Controllers\MinjamController::class, 'destroy'])->name('destroy-peminjam');
+
+
+// Ulasan
+Route::resource('/ulas', App\Http\Controllers\UlasController::class);
+// Koleksi
+Route::get('/koleksi', [App\Http\Controllers\KoleksiController::class, 'index'])->name('index');
 
 
 Route::middleware(['middleware', 'admin'])->group(function () {

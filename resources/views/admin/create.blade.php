@@ -22,18 +22,27 @@
                                     <input type="text" class="form-control" name="penulis" id="penulis" placeholder="name@example.com">
                                     <label for="floatingPassword">Penulis</label>
                                 </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="date" class="form-control" name="thn_terbit" id="thn_terbit" placeholder="name@example.com">
-                                            <label for="floatingPassword">Tahun Terbit</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="kategori" id="kategori" placeholder="name@example.com">
-                                            <label for="floatingPassword">Kategori</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="stok" id="stok" placeholder="name@example.com">
-                                            <label for="floatingPassword">Stok</label>
-                                        </div>
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" name="thn_terbit" id="thn_terbit" placeholder="name@example.com">
+                                    <label for="floatingPassword">Tahun Terbit</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="kategori" class="form-label">Kategori</label>
+                                    <select class="form-select" aria-label="Default select example" name="id_kategori">
+                                        @foreach ($kategori as $kategorii)
+                                            <option value="{{ Str::title($kategorii->id) }}">
+                                                {{ Str::title($kategorii->kategori) }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="deskripsi" name="deskripsi" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Comments</label>
+                                  </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="stok" id="stok" placeholder="name@example.com">
+                                    <label for="floatingPassword">Stok</label>
+                                </div>
                                         <div class="mb-3">
                                             <input type="file" class="form-control" aria-label="file example" name="gambar" id="gambar">
                                             <div class="invalid-feedback"></div>
