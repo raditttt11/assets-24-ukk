@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use App\Models\Koleksi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class KoleksiController extends Controller
@@ -11,7 +14,14 @@ class KoleksiController extends Controller
      */
     public function index()
     {
-        return view('dashboard.koleksi');
+        $koleksi = Koleksi::where('id_user',auth()->user()->id)->paginate(5);
+        $user = User::get();
+        $buku = Admin::get();
+        return view('dashboard.koleksi', compact('koleksi'),[
+            'title' => 'Koleksi',
+            'active' => 'koleksi',
+            'user' => $user
+        ]);
     }
 
     /**
@@ -27,7 +37,14 @@ class KoleksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'id_user' => 'required',
+            'id_buku' => 'required',
+        ]);
+
+        $koleksi = Koleksi::create($validateData);
+
+        return redirect('/koleksi');
     }
 
     /**
@@ -59,6 +76,11 @@ class KoleksiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $koleksi = Koleksi::findOrFail($id);
+
+        // Delete Post
+        $koleksi->delete();
+
+        return redirect('/koleksi');
     }
 }

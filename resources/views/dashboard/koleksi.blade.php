@@ -25,7 +25,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <h3>BUKU KUU</h3>
+                            <h3>KOLEKSI BUKU KAMU</h3>
                         </div>
                     </div>
                 </div>
@@ -49,25 +49,39 @@
                                 </tr>
                             </thead>
                                 <tbody>
+                                    @foreach ($koleksi as $koleksi )
                                     <tr>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>
-                                            <img class="gambar" src="{{ url('gambar/orang.png') }}" alt="">
+                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td style="width: 150px; height: 200px"><img
+                                                src="{{ asset('storage/storage/image' . $koleksi->buku->cover) }}" alt=""
+                                                class="w-100">
                                         </td>
+                                        <td class="text-center">{{ Str::title($koleksi->buku->judul) }}</td>
+                                        <td class="text-center">{{ Str::title($koleksi->buku->penulis) }}</td>
                                         <td>
-                                            <!-- Example single danger button -->
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Action
+                                            <div class="dropdown text-center">
+                                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Action
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">detail</a></li>
-                                                <li><a class="dropdown-item" href="#">Hapus</a></li>
+                                                    <li><a class="dropdown-item"
+                                                            href="{{ route('dashboard-admin.show', $koleksi->buku->id) }}"><i
+                                                                class="bi bi-eye"></i>
+                                                            Detail</a></li>
+                                                    <form action="{{ route('koleksi.destroy', $koleksi->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <li><button type="submit" class="dropdown-item" href="#"><i
+                                                                    class="bi bi-trash"></i>
+                                                                Delete</button></li>
+                                                    </form>
                                                 </ul>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                         </table>
                     </div>

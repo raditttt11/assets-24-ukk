@@ -27,6 +27,10 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
 route::get('/register', function () {
     return view('auth.register');
 });
@@ -81,6 +85,10 @@ Route::get('/destroy-peminjam/{id}', [App\Http\Controllers\MinjamController::cla
 Route::resource('/ulas', App\Http\Controllers\UlasController::class);
 // Koleksi
 Route::get('/koleksi', [App\Http\Controllers\KoleksiController::class, 'index'])->name('index');
+
+// User
+Route::resource('/user', App\Http\Controllers\UserController::class);
+
 
 
 Route::middleware(['middleware', 'admin'])->group(function () {

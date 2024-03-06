@@ -21,10 +21,8 @@
                                     </button>
                                 </form>
                             </div>
-
-
                         </ul>
-                        <img src="{{ asset('gambar_buku/' . $buku->gambar) }}" alt="" class="ms-3"
+                        <img src="{{ asset('/storage/storage/image/' . $buku->gambar) }}" alt="" class="ms-3"
                             style="width:250px; height:300px">
                     </div>
                     <div class="col-md-4 col-sm-12">

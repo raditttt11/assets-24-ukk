@@ -73,6 +73,13 @@
                         </li>
 
                         <li class="sidebar-item">
+                            <a href="{{ url('user') }}" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Userr</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
                             <a href="{{ url('/') }}" class="sidebar-link">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>Logout</span>
