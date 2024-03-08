@@ -15,7 +15,7 @@
                             <form action="{{ route('update-minjam', $pmjm->id) }}" method="POST">
                                 @csrf
                                 <div class="form-floating mb-3">
-                                  <input type="text" class="form-control" name="judul" id="judul" value="{{ $pmjm->judul }}">
+                                  <input type="text" class="form-control" name="judul" id="judul" value="{{ $pmjm->buku->judul }}">
                                   <label for="floatingInput">Judul</label>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -31,6 +31,11 @@
                                         <option {{ $pmjm->status == "Dipinjam" ? 'selected' : '' }} name="status" value="Dipinjam">Dipinjam</option>
                                         <option {{ $pmjm->status == "Dikembalikan" ? 'selected' : '' }} name="status" value="Dikembalikan">Dikembalikan</option>
                                     </select>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" value="{{$pmjm->jml_pinjam}}" name="jml_pinjam" id="peminjam"
+                                        placeholder="name@example.com">
+                                    <label>Jumlah</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name="peminjam" id="peminjam" value="{{ $pmjm->peminjam }}">

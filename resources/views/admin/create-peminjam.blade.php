@@ -20,6 +20,8 @@
                             <option value="{{ $item->id }}">{{ $item->judul }}</option>
                         @endforeach
                     </select>
+                    <input type="text" hidden value="{{Auth::user()->id}}" class="form-control" name="id_user" id="tgl_minjam"
+                            placeholder="name@example.com">
                     <div class="form-floating mb-3">
                         <input type="date" class="form-control" name="tgl_pinjam" id="tgl_minjam"
                             placeholder="name@example.com">
@@ -38,10 +40,14 @@
                         </select>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="peminjam" id="peminjam"
+                        <input type="text" class="form-control" name="jml_pinjam" id="peminjam"
                             placeholder="name@example.com">
-                        <label for="floatingPassword">Peminjam</label>
+                        <label for="floatingPassword">Jumlah</label>
                     </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="peminjam" id="judul" value="{{Auth::user()->name}}" readonly>
+                        <label for="floatingInput">Peminjam</label>
+                      </div>
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn-close" aria-label="Close"></button>

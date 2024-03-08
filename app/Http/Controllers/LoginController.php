@@ -26,6 +26,11 @@ class LoginController extends Controller
     {
         return view('auth.register');
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 
     public function postregister(Request $request)
     {

@@ -16,7 +16,6 @@ class Admin extends Model
     // Untuk Table Buku
     protected $table = 'buku';
     protected $fillable = [
-        'id',
         'judul',
         'penulis',
         'thn_terbit',

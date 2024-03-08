@@ -27,7 +27,12 @@
                                             <label for="floatingPassword">Tahun Terbit</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="kategori" id="kategori" value="{{ $adm->kategori }}">
+                                            {{-- <input type="text" class="form-control" name="kategori" id="kategori" value="{{ $adm->kategori }}"> --}}
+                                            <select class="form-select" name="id_kategori" aria-label="Default select example">
+                                                @foreach ($kategori as $item)
+                                                <option value="{{$item->id}}">{{$item->kategori}}</option>
+                                                @endforeach
+                                            </select>
                                             <label for="floatingPassword">Kategori</label>
                                         </div>
                                         <div class="form-floating mb-3">

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MinjamExport;
 use App\Models\Admin;
 use App\Models\Minjam;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MinjamController extends Controller
 {
@@ -36,7 +38,9 @@ class MinjamController extends Controller
             'tgl_kembali' => $request->tgl_kembali,
             'status' => $request->status,
             'peminjam' => $request->peminjam,
+            'jml_pinjam' => $request->jml_pinjam,
             'id_buku' => $request->id_buku,
+            'id_user' => $request->id_user,
         ]);
         return redirect('/minjam');
     }
@@ -77,5 +81,9 @@ class MinjamController extends Controller
         $pmjm = Minjam::findorfail($id);
         $pmjm->delete();
         return back();
+    }
+
+    public function export (Request $request){
+        return Excel::download(new MinjamExport, 'minjam.xlsx');
     }
 }

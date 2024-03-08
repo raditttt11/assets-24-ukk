@@ -11,11 +11,12 @@ class UlasController extends Controller
 {
     public function index() {
 
-        $ulas = Ulasan::latest()->pagination(5);
+        $ulas = Ulasan::latest()->paginate(5);
         $buku = Admin::get();
         return view('dashboard.buku',[
             'title' => 'Buku',
             'active' => 'buku',
+            'ulas' => $ulas,
             'buku' => $buku
         ]);
     }
@@ -46,18 +47,18 @@ class UlasController extends Controller
 
         if($validateData){
             Ulasan::create($validateData);
-            return redirect('dashboard.buku');
+            return redirect('/detail/' . $validateData['id_buku']);
         }
         return redirect()->back();
     }
 
 
 
-    public function edit() {
-        $ulas = Ulasan::where('id','$id')->first();
+    public function edit(string $id) {
+        $ulas = Ulasan::where('id',$id)->first();
         $buku = Admin::get();
         $user = User::get();
-        $ulas = Ulasan::get();
+        // $ulas = Ulasan::get();
         $ulas1 = Ulasan::get();
 
         return view('admin.edit-ulas', [
@@ -76,7 +77,7 @@ class UlasController extends Controller
             'id_user' => 'required',
             'id_buku' => 'required',
             'ulasan' => 'nullable|max:255',
-            'rating' => 'nullable',
+            'rating' => 'nullable'
         ]);
         $ulas = Ulasan::where('id',$id)->update($validateData);
         return $this->index();
@@ -90,6 +91,6 @@ class UlasController extends Controller
         $ulas->delete();
 
         // redirect
-        return redirect('dashboard.buku');
+        return back();
     }
 }

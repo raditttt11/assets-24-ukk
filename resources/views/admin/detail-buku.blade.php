@@ -13,23 +13,24 @@
                     <div class="col-md-4 col-sm-12">
                         <ul>
                             <div class="row col-md-4 col-sm-12  position-absolute" style="left: 35px;">
-                                <form action="/" enctype="multipart/form-data" method="post">
-                                    @csrf
-                                    {{-- <input type="hidden" name="id_buku" id="id_buku" value="{{ $buku->id }}">
-                                <input type="hidden" name="id_user" id="id_user" value="{{ Auth::user()->id }}">
-                                <button type="submit" class="btn btn-success ms-3 my-1"><i class="bi bi-bookmark"></i> --}}
-                                    </button>
-                                </form>
+                                <form action="{{ route('koleksi.store') }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="id_buku" value="{{ $buku->id }}">
+                                        <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
+                                        <button type="submit" class="btn btn-primary position-absolute top-0 left-0">Tambah
+                                            Koleksi</button>
+                                    </form>
                             </div>
                         </ul>
-                        <img src="{{ asset('/storage/storage/image/' . $buku->gambar) }}" alt="" class="ms-3"
-                            style="width:250px; height:300px">
+                        <img src="{{ asset('storage/storage/image/' . $buku->gambar) }}" alt="" class="ms-3"
+                            style="width:300px;">
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <form action="" class="mx-2">
                             <div class="mb-3">
                                 <label for="judul-buku" class="form-label">ID</label>
-                                <input type="text" class="form-control" id="judul-buku" name="judul" placeholder=""
+                                <input type="text" class="form-control" id="judul-buku" name="id_buku" placeholder=""
                                     readonly value="{{ $buku->id }}">
                             </div>
                             <div class="mb-3">
@@ -87,7 +88,7 @@
                     <div class="card-header">
                         <ul class="d-flex justify-content-between">
                             <h3>Ulasan</h3>
-                            <a href="{{ route('ulas.create') }}">
+                            <a href="{{ route('ulas.create', $buku->id) }}">
                                 <button type="button" class="btn btn-success"><i class="bi bi-plus-circle"></i>
                                     Berikan
                                     Ulasan</button>
@@ -113,7 +114,7 @@
                                         <td>{{ Str::title($ulas->buku->judul) }}</td>
                                         <td>{{ $ulas->ulasan }}</td>
                                         <td>{{ $ulas->rating }}</td>
-                                        <td>{{ Str::title($ulas->user->username) }}</td>
+                                        <td>{{ Str::title($ulas->user->name) }}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <button class="btn btn-primary dropdown-toggle" type="button"

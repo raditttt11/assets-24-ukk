@@ -12,7 +12,6 @@ class UserController extends Controller
      */
     public function index()
     {
-
         $user = User::all();
         return view('admin.pengguna', [
             'title' => 'Data Pengguna',
@@ -90,11 +89,11 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
 
 
-        return view('edit.edit-profile', [
-        'user' => $user,
-        'title' => 'Edit Pengguna',
-        'active' => 'buku',
-        ]);
+        // return view('edit.edit-profile', [
+        // 'user' => $user,
+        // 'title' => 'Edit Pengguna',
+        // 'active' => 'buku',
+        // ]);
     }
 
     /**

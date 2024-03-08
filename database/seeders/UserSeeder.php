@@ -11,13 +11,28 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        User::truncate();
         User::create([
-            'name' => 'Admin Perpus',
-            'level' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('12345'),
-            'remember_token' => Str::random(10),
+            [
+                'name' => 'Admin Perpus',
+                'role' => 'admin',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('12345'),
+                'remember_token' => Str::random(10),
+            ],
+            [
+                'name' => 'Petugas Perpus',
+                'role' => 'petugas',
+                'email' => 'petugas@petugas.com',
+                'password' => bcrypt('12345'),
+                'remember_token' => Str::random(10),
+            ],
+            [
+                'name' => 'Peminjam Perpus',
+                'role' => 'peminjam',
+                'email' => 'peminjam@peminjam.com',
+                'password' => bcrypt('12345'),
+                'remember_token' => Str::random(10),
+            ],
         ]);
     }
 }

@@ -80,7 +80,14 @@ class BukuController extends Controller
     public function edit(string $id)
     {
         $adm = Admin::findorfail($id);
-        return view('admin.edit', compact('adm'));
+        $kategori = kategori::orderBy('kategori')
+            ->get();
+        // $adm = Admin::with('kategori');
+        return view('admin.edit')
+            ->with([
+                'adm' => $adm,
+                'kategori' => $kategori,
+            ]);
     }
 
     /**
@@ -98,9 +105,9 @@ class BukuController extends Controller
             'judul' => $request->judul,
             'penulis' => $request->penulis,
             'thn_terbit' => $request->thn_terbit,
-            'kategori' => $request->kategori,
+            'id_kategori' => $request->id_kategori,
             'stok' => $request->stok,
-            'deskripsi' => $request->deskripsi,
+            // 'deskripsi' => $request->deskripsi,
             'gambar' => $img->hashName(),
         ]);
         return redirect('/buku');

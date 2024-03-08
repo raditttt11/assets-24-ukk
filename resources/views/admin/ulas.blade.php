@@ -18,15 +18,15 @@
                                 @csrf
                                 <input type="text" hidden name="id_user" value="{{ Auth::user()->id }}" id="">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" placeholder="" readonly
-                                        value="{{ Auth::user()->username }}" readonly>
+                                    <label for="name" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="name" placeholder=""
+                                        value="{{ Auth::user()->name }}" readonly>
                                 </div>
-                                <div class="mb-3">
+                                <div class= "mb-3">
                                     <label for="nama" class="form-label">Judul Buku</label>
                                     <select class="form-select" name="id_buku" aria-label="Default select example">
-                                        @foreach ($ulas as $buku)
-                                            <option value="{{ $buku->id }}">{{ $buku->judul }}</option>
+                                        @foreach ($buku as $bukus)
+                                            <option value="{{ $bukus->id }}">{{ $bukus->judul }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -42,8 +42,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="ulasan" class="form-label">Komentar</label>
-                                    <textarea name="ulasan" id="ulasan" cols="30" rows="10" maxlength="255" class="w-100 form-control"
-                                        name="komentar"></textarea>
+                                    <textarea name="ulasan" id="ulasan" cols="30" rows="10" maxlength="255" class="w-100 form-control"></textarea>
                                 </div>
                                 {{-- <a href={{ route('dashboard-admin.show', $buku->id) }}>
                                     <button type="button" class="btn btn-danger my-2 ">Batal </button>

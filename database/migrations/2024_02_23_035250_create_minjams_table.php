@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('id_user')->references('id')->on('users');
             $table->string('status');
             $table->string('peminjam');
+            $table->integer('jml_pinjam');
             $table->unsignedBigInteger('id_buku');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_buku')->references('id')->on('buku')->onDelete('cascade');

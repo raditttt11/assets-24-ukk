@@ -50,11 +50,11 @@
                                                                 href="{{ route('user.show', $item->id) }}"><i
                                                                     class="bi bi-eye"></i>
                                                                 Detail</a></li>
-                                                        <li><a class="dropdown-item"
+                                                        {{-- <li><a class="dropdown-item"
                                                                 href="{{ route('user.edit', $item->id) }}"><i
                                                                     class="bi bi-pencil"></i>
                                                                 Edit</a>
-                                                        </li>
+                                                        </li> --}}
                                                         <form action="{{ route('user.destroy', $item->id) }}"
                                                             method="POST">
                                                             @csrf

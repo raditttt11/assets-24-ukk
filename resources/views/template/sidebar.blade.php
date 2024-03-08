@@ -44,17 +44,11 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title fw-bold">Menu</li>
+                        @if (Auth::user()->role == 'admin')
                         <li class="sidebar-item">
                             <a href="{{ url('buku') }}" class="sidebar-link">
                                 <i class="bi bi-book"></i>
                                 <span>Buku</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item ">
-                            <a href="{{ url('koleksi') }}" class="sidebar-link">
-                                <i class="bi bi-bookmark-fill"></i>
-                                <span>Koleksi</span>
                             </a>
                         </li>
 
@@ -78,9 +72,51 @@
                                 <span>Userr</span>
                             </a>
                         </li>
+                        @endif
+                        @if (Auth::user()->role == 'petugas')
+                        <li class="sidebar-item">
+                            <a href="{{ url('buku') }}" class="sidebar-link">
+                                <i class="bi bi-book"></i>
+                                <span>Buku</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="{{ url('data') }}" class="sidebar-link">
+                                <i class="bi bi-tag"></i>
+                                <span>Kategori</span>
+                            </a>
+                        </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ url('/') }}" class="sidebar-link">
+                            <a href="{{ url('minjam') }}" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Peminjaman</span>
+                            </a>
+                        </li>
+                        @endif
+                        @if (Auth::user()->role == 'peminjam')
+                        <li class="sidebar-item">
+                            <a href="{{ url('buku') }}" class="sidebar-link">
+                                <i class="bi bi-book"></i>
+                                <span>Buku</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ url('minjam') }}" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Peminjaman</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="{{ url('koleksi') }}" class="sidebar-link">
+                                <i class="bi bi-bookmark-fill"></i>
+                                <span>Koleksi</span>
+                            </a>
+                        </li>
+                        @endif
+
+                        <li class="sidebar-item">
+                            <a href="{{ url('/logout') }}" class="sidebar-link">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>Logout</span>
                             </a>

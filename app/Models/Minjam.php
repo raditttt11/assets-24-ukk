@@ -15,7 +15,9 @@ class Minjam extends Model
         'tgl_kembali',
         'status',
         'peminjam',
+        'jml_pinjam',
         'id_buku',
+        'id_user',
     ];
 
     public function buku()

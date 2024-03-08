@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 @include('template.head')
 </head>
 <style class="">
@@ -42,9 +44,10 @@
                         <table class="table table-bordered table-responsive">
                             <thead class="table-light">
                                 <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Gambar</th>
                                     <th scope="col">Judul</th>
                                     <th scope="col">Penulis</th>
-                                    <th scope="col">Gambar</th>
                                     <th scope="col">Opsi</th>
                                 </tr>
                             </thead>
@@ -53,7 +56,7 @@
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td style="width: 150px; height: 200px"><img
-                                                src="{{ asset('storage/storage/image' . $koleksi->buku->cover) }}" alt=""
+                                                src="{{ asset('storage/storage/image/' . $koleksi->buku->gambar) }}" alt=""
                                                 class="w-100">
                                         </td>
                                         <td class="text-center">{{ Str::title($koleksi->buku->judul) }}</td>
@@ -65,10 +68,10 @@
                                                     Action
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item"
-                                                            href="{{ route('dashboard-admin.show', $koleksi->buku->id) }}"><i
+                                                    {{-- <li><a class="dropdown-item"
+                                                            href="{{ route('', $koleksi->buku->id) }}"><i
                                                                 class="bi bi-eye"></i>
-                                                            Detail</a></li>
+                                                            Detail</a></li> --}}
                                                     <form action="{{ route('koleksi.destroy', $koleksi->id) }}"
                                                         method="POST">
                                                         @csrf
